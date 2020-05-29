@@ -113,15 +113,12 @@ To be able to compute the probability of success of a given transfert, we use th
 
 To be able to do that, we need delay distributions for each trip arrival to a given station. We then use a __cumulative distribution function__ to compute $`P(X \leq x)`$ :
 
-```math
-{\displaystyle F_{X}(x)=\operatorname {P} (T\leq t)=\sum _{t_{i}\leq t}\operatorname {P} (T=t_{i})=\sum _{t_{i}\leq t}p(t_{i}).}
-```
+$${\displaystyle F_{X}(x)=\operatorname {P} (T\leq t)=\sum _{t_{i}\leq t}\operatorname {P} (T=t_{i})=\sum _{t_{i}\leq t}p(t_{i}).}$$
 
 The strategy was to rely entirely on past data to compute $`p(t_i)`$, without the need of building a model based on additionnal assumptions. If we have enough data for a given transfer with known `trip_id` x `stop_id`, we use the the abovementionned formula to compute each $`p(t_i)`$ by simply using :
 
-```math
-p(t_i) = \frac{d_i}{\sum x_i}
-```
+$$p(t_i) = \frac{d_i}{\sum x_i}$$
+
 with $`d_i`$ being the number of delays at time $`t_i`$ from SBB dataset and $`\sum x_i`$ the total number of trips arriving at the stop at time $`t_i`$.
 
 We make a few __assumptions__ :
